@@ -22,10 +22,10 @@
             text-align: left;
             font-size: 0.8em;
         }
-        td#mat{
+        th#mat{
             text-align: center;
         }
-        td.peq{
+        th.peq{
             font-size: smaller;
             padding: 0px;
             padding-left: 10px;
@@ -35,6 +35,10 @@
         tfoot{
             text-align: left;
         }
+        th > img.logo{
+            width: 70px;
+            height: 70px;
+        }
         
     </style>
 </head>
@@ -43,7 +47,7 @@
         
         <thead>
             <tr>
-                <th>Imagem do grupo</th>
+                <th><img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTxPCVL_YFXSUddbCmfzklPiciwqv_3ohhBQ&s" alt="Imagem do Grupo Galeazi"></th>
                  <th colspan="3">REQUISIÇÃO DE MATERIAL</th>
             </tr>
         </thead>
@@ -55,8 +59,8 @@
                 <th class="cabe">Data de Emissão</th>
             </tr>
             <tr>
-                <td class="peq">Quantidade</td>
-                <td colspan="3" class="peq" id="mat">Material Solicitado</td>
+                <th scope="col" class="peq">Quantidade</th>
+                <th scope="colgroup" colspan="3" class="peq" id="mat">Material Solicitado</th>
             </tr>
             <tr>
                 <td></td>
