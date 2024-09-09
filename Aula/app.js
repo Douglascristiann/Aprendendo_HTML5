@@ -8,17 +8,25 @@ function pesquisar() {
 
     campoPesquisa = campoPesquisa.toLowerCase()
 
+    if (!campoPesquisa){
+        section.innerHTML= "<p>Nada foi encontrado. Digite Antes de pesquisar.</p>"
+        return
+    }
+
     // Inicializa uma string vazia para armazenar os resultados da pesquisa
     let resultados = "";
     let nome = "";
     let descricao = "";
+    let tag = "";
+
     // Itera sobre cada dado na lista de dados
     for (let dado of dados) {
 
         nome = dado.nome.toLowerCase()
         descricao = dado.descricao.toLowerCase()
+        tag = dado.tags.toLowerCase()
 
-        if (nome.includes(campoPesquisa) || descricao.includes(campoPesquisa)){
+        if (nome.includes(campoPesquisa) || descricao.includes(campoPesquisa) || tag.includes(campoPesquisa) ){
             resultados += `
             <div class="item-resultado">
                 <h2>
@@ -29,13 +37,11 @@ function pesquisar() {
             </div>
             `;
         }
-        if (campoPesquisa == ""){
-            return
-        }
     }
-    // Cria um título com um link para o dado
-    // Adiciona uma descrição
-    // Adiciona um link para a Wikipédia
-    // Atribui os resultados gerados à seção HTML
+
+    if (!resultados){
+        resultados= "<p> Nada foi encontrado. </p>"
+    }
+
     section.innerHTML = resultados;
 }
